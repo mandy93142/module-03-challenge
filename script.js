@@ -152,11 +152,10 @@ function getPasswordOptions() {
       hasSpecialCharacters: hasSpecialCharacters,
       hasNumericCharacters: hasNumericCharacters,
       hasLowerCasedCharacters: hasLowerCasedCharacters,
-      hasUpperCasedCharacters: hasUpperCasedCharacters,
+      hasUpperCasedCharacters: hasUpperCasedCharacters
     }
 
     return passwordOptions;
-
 }
 
 function getRandom(arr) {
@@ -168,16 +167,16 @@ function getRandom(arr) {
 // Function that generates password
 function generatePassword() {
   var options = getPasswordOptions();
-  var results = []
+  var results = [];
 
-  var possibleCharacters = []
+  var possibleCharacters = [];
 
   var guaranteedCharacters = [];
 
   if(!options) return null;
 
   if(options.hasSpecialCharacters) {
-    possibleCharacters = possibleCharacters.concat(specialCharacters))
+    possibleCharacters = possibleCharacters.concat(specialCharacters)
     guaranteedCharacters.push(getRandom(specialCharacters));
   }
 
@@ -198,9 +197,9 @@ function generatePassword() {
   }
 
   for(var index = 0; index < options.length; index++) {
-    possibleCharacters = getRandom(possibleCharacters);
+    var possibleCharacter = getRandom(possibleCharacters);
 
-    results.push(possibleCharacters);
+    results.push(possibleCharacter);
   }
 
   for(var index = 0; index < guaranteedCharacters.length; index++) {
@@ -209,6 +208,7 @@ function generatePassword() {
 
   return results.join("")
 }
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
